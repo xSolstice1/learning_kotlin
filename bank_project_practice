@@ -4,8 +4,8 @@ fun main(){
     println("1. Debit Account")
     println("2. Credit Account")
     println("3. Checking Account")
-    accountBalance = -50
-    creditDeposit(50)
+    accountBalance = -60
+    creditDeposit(60)
 }
 
 var accountType:String = ""
