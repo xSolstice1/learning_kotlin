@@ -1,0 +1,68 @@
+fun main(){
+    println("Welcome to your banking system.")
+    println("What type of account would you like to create?")
+    println("1. Debit Account")
+    println("2. Credit Account")
+    println("3. Checking Account")
+    accountBalance = -50
+    creditDeposit(50)
+}
+
+var accountType:String = ""
+var userChoice = 0
+var accountBalance = (1..1000).random()
+val money = (1..1000).random()
+var output = 0
+
+
+fun creditDeposit(amount:Int):Int{
+    if (accountBalance == 0){
+        println("You don't have any money in your bank account!")
+    }
+    else if (accountBalance + amount > 0){
+        println("Deposit failed.")
+    }
+    else if (-accountBalance == amount){
+        accountBalance += amount
+        println("You have successfully paid off your credit!")
+    }
+    return amount
+}
+
+fun deposit(amount:Int):Int{
+    accountBalance += amount
+    println("You have successfully deposited $" + amount + " into your bank account.")
+    return amount
+}
+
+fun debitWithdraw(amount:Int){
+    if (accountBalance <= 0){
+        println("Bank account is empty!")
+    }
+    else if (amount > accountBalance){
+        println("Not enough money in the bank account! Your current balance is $" + accountBalance)
+    }
+    else 
+    withdraw(amount)
+}
+
+fun withdraw(amount:Int){
+    accountBalance -= amount
+    println("You have withdrawn $" + amount + " from your bank account.")
+}
+
+fun printAccount(){
+while (accountType == ""){
+    println("Choose an option(1,2,3)")
+    userChoice = (1..5).random()
+    println("The selected option is " + userChoice)
+    when (userChoice){
+        1 -> accountType = "debit"
+        2 -> accountType = "credit"
+        3 -> accountType = "checking"
+        else -> continue
+    }
+}
+	println("You have successfully created a " + accountType + " account.")
+    println("Your account balance is $" + accountBalance)
+}
